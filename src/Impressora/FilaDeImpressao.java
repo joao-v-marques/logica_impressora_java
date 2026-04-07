@@ -23,6 +23,7 @@ public class FilaDeImpressao {
 
     public void imprimir() {
         if (vazia()) {
+            System.out.println("Você não possui documentos para imprimir.");
             return;
         }
 
@@ -38,6 +39,7 @@ public class FilaDeImpressao {
 
     public void cancelar(String nome) {
         if (vazia()) {
+            System.out.println("Você não possui nenhum documento para cancelar.");
             return;
         }
 
@@ -71,6 +73,10 @@ public class FilaDeImpressao {
 
     public void exibir() {
         Documento atual = primeiro;
+        if (vazia()) {
+            System.out.println("Sua lista está vazia!");
+            return;
+        }
 
         while (atual != null) {
             System.out.println(atual.nome);
