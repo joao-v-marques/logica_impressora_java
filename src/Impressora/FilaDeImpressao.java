@@ -27,8 +27,6 @@ public class FilaDeImpressao {
             return;
         }
 
-        String primeiroValor = primeiro.nome;
-
         if (primeiro == ultimo) {
             primeiro = null;
             ultimo = null;
@@ -48,19 +46,18 @@ public class FilaDeImpressao {
 
         while (atual != null) {
             if(atual.nome.equals(nome)) {
-                // Caso 1: é o primeiro valor
+                // Caso seja o primeiro valor
                 if (atual == primeiro) {
                     primeiro = atual.proximo;
 
-                    // Se também era o ultimo
                     if (primeiro == null) {
                         ultimo = null;
                     }
                 } else {
-                    // Caso 2: está no meio ou no final
+                    // Caso o valor esteja no meio ou no final
                     anterior.proximo = atual.proximo;
 
-                    // Caso 3: era o útlimo
+                    // Caso seja o último
                     if (atual == ultimo) {
                         ultimo = anterior;
                     }
@@ -99,8 +96,6 @@ public class FilaDeImpressao {
 
 
     public void prioridade(String nome) {
-        Documento novo = new Documento(nome);
-
         if (vazia()) {
             System.out.println("A lista está vazia!");
             return;
